@@ -5,7 +5,7 @@ Written with SWI-Prolog.
 
 To run (at the moment):
 
-- Run prolog, load the files with
+- Run swipl, load the files with
       `[watersort], [levels].`
 - Run on a level from the levels file with
       `solve_puzzle(level, Moves).`

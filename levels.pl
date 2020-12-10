@@ -1,7 +1,8 @@
 
-%Levels are lists of lists, with each tube listed as its colours, top to bottom, or empty
+% Levels are facts containing a list of lists, with each tube listed as its
+% colours, top to bottom, or empty
 
-level_3([
+level(3, [
 [violet, red, orange, violet],
 [violet, red, orange, orange],
 [red, orange, violet, red],
@@ -9,7 +10,7 @@ level_3([
 []
 ]).
 
-level_5([
+level(5, [
 [pink, violet, orange, green],
 [pink, violet, green, orange],
 [red, orange, red, pink],
@@ -19,7 +20,7 @@ level_5([
 []
 ]).
 
-level_108([
+level(108, [
 [lightblue, green, red, lightgreen],
 [lightblue, lightblue, green, pink],
 [red, red, green, purple],
@@ -33,14 +34,14 @@ level_108([
 []
 ]).
 
-test_level([
+level(test, [
 [red, red, yellow, yellow],
 [yellow, yellow, red, red],
 []
 ]).
 
 
-level_10([
+level(10, [
 [violet, green, violet, pink],
 [red, pink, grey, orange],
 [green, blue, blue, violet],
@@ -53,7 +54,7 @@ level_10([
 
 ]).
 
-level_31([
+level(31, [
 [purple, pink, green, violet],
 [violet, olive, purple, blue],
 [orange, green, grey, violet],
@@ -67,8 +68,38 @@ level_31([
 []
 ]).
 
+level(97, [
+[purple, pink, green, olive],
+[violet, pink, grey, grey],
+[red, purple, orange, olive],
+[violet, blue, violet, grey],
+[red, green, blue, violet],
+[blue, orange, red, pink],
+[red, orange, green, blue],
+[olive, grey, pink, green],
+[orange, purple, olive, purple],
+[],
+[]
+]).
 
-level_133([
+level(105, [
+[violet, green, blue, blue],
+[purple, pink, olive, grey],
+[orange, purple, red, brown],
+[orange, pink, red, orange],
+[green, red, yellow, violet],
+[yellow, green, brown, green],
+[brown, purple, red, lightgreen],
+[lightgreen, purple, pink, lightgreen],
+[olive, grey, blue, violet],
+[brown, yellow, grey, olive],
+[grey, yellow, lightgreen, violet],
+[olive, blue, pink, orange],
+[],
+[]
+]).
+
+level(133, [
 [purple, olive, brown, lightgreen],
 [yellow, green, green, purple],
 [red, brown, lightgreen, pink],
@@ -85,7 +116,7 @@ level_133([
 []
 ]).
 
-level_135([
+level(135, [
 [red, orange, red, pink],
 [purple, blue, pink, grey],
 [yellow, lightblue, green, brown],
@@ -102,7 +133,7 @@ level_135([
 []
 ]).
 
-level_136([
+level(136, [
 [purple, red, grey, olive],
 [blue, blue, green, violet],
 [grey, orange, orange, green],
@@ -116,7 +147,7 @@ level_136([
 []
 ]).
 
-level_137([
+level(137, [
 [purple, yellow, blue, lightgreen],
 [purple, pink, orange, green],
 [green, yellow, brown, pink],
@@ -133,7 +164,7 @@ level_137([
 []
 ]).
 
-level_138([
+level(138,[
 [purple, pink, olive, blue],
 [pink, violet, pink, orange],
 [grey, grey, violet, purple],

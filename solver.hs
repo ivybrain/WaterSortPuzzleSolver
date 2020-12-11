@@ -41,7 +41,7 @@ solve_state (state, past) = let
   moves = find_valid_moves state
   results = map (move_result state) moves
 
-  -- List of the result solve_state on each of the states reachable from this one
+  -- List of the results of solve_state on each of the states reachable from this one
   -- ie all of the states reachable within 2 steps of this one
   next_states = [solve_state(x, (move:past)) | (x, move) <- zip results moves]
 
@@ -52,6 +52,7 @@ solve_state (state, past) = let
   -- If there is a win state directly reachable from this one, return it
   if any win_state results then
     (win_in_this, move:past)
+    
   -- Otherwise check if there is a win state reachable 2 steps from this one
   -- (will recursively check as many steps as are possible)
   else if any (\x -> win_state $ fst x) next_states then

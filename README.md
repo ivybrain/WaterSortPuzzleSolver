@@ -17,8 +17,7 @@ To run:
 This outputs a list of moves (from, to), indicating which tube to pour into which.
 
 
-
-Old version written in SWI-Prolog.
+## Old version written in SWI-Prolog.
 
 To run:
 

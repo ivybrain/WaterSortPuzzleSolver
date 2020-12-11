@@ -27,17 +27,17 @@ solve_level(Level, Moves) :-
     call(level, Level, Tubes),
     findall((N, Tube), (member(Tube, Tubes), nth1(N, Tubes, Tube)), S),
     sort(1, @<, S, State),
-    make_move(State, Moves, [])
+    make_move(State, Moves)
   ;
     throw("Invalid Level Data").
 
 % Finds a series of valid moves that lead to a winning state, then return these moves
 % make_move(+State, +Acc, - Moves)
 
-make_move(State, [], _) :-
+make_move(State, []) :-
   win_state(State).
 
-make_move(State, [(Fn, Tn)|Moves], PastStates) :-
+make_move(State, [(Fn, Tn)|Moves]) :-
   member((Fn, From), State),
   member((Tn, To), State),
   Fn \= Tn,
@@ -45,8 +45,8 @@ make_move(State, [(Fn, Tn)|Moves], PastStates) :-
   sort(1, @<, [(Fn, FromNew), (Tn, ToNew)], Changes),
   sort(1, @<, State, StateS),
   update_state(StateS, Changes, [], State_next),
-  not_in_past(State_next, PastStates),
-  make_move(State_next, Moves, [StateS|PastStates]).
+  %not_in_past(State_next, PastStates),
+  make_move(State_next, Moves).
 
 
 % Takes a state (list of (TubeNumber, Tube)) and creates a new one with the elements in Changes (a similar list)

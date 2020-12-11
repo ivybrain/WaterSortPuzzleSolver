@@ -1,4 +1,4 @@
 *.o
-main
+watersort
 *.hi
 .DS_Store

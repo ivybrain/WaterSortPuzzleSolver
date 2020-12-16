@@ -1,0 +1,3 @@
+Levels are text files, with each line representing a tube, colours listed from top to bottom
+Empty tubes are represented by a 0
+Colours can be any string without spaces, but must be consistent through the file

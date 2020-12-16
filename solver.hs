@@ -3,7 +3,6 @@ module Solver (solve_level,
   ) where
 
 import Data.List
-import Levels
 
 -- Tubes consist of a tube number, counting from 1, and a list of colours
 data Tube = Tube Int [Colour] deriving (Show)
@@ -14,15 +13,20 @@ instance Eq Tube
 type State = [Tube]
 
 -- A move consists of two tubes, the first From and the other To
-data Move = Move Tube Tube deriving Eq
+data Move = Move Tube Tube deriving (Eq)
+
+-- A level consists of a list of tubes represented as lists of strings
+type Level = [[Colour]]
+
+type Colour  = String
 
 instance Show Move
   where show (Move (Tube fn _) (Tube tn _)) = show (fn, tn)
 
 -- Load a level number, verify it, and solve it
-solve_level :: Int -> [Move]
-solve_level n = let
-  l = level n
+solve_level :: Level -> [Move]
+solve_level l = let
+
   sts = level_to_state l
   (state, moves) = solve_state (sts, [])
   in
@@ -52,7 +56,7 @@ solve_state (state, past) = let
   -- If there is a win state directly reachable from this one, return it
   if any win_state results then
     (win_in_this, move:past)
-    
+
   -- Otherwise check if there is a win state reachable 2 steps from this one
   -- (will recursively check as many steps as are possible)
   else if any (\x -> win_state $ fst x) next_states then
@@ -126,4 +130,11 @@ verify_level :: Level -> Bool
 verify_level l = let
   flat = concat l
   sames = group (sort flat)
-  in and $ map (\x -> length x == 4) sames
+  invalid = filter (\x -> length x /= 4) sames
+  errors = concat $ "Invalid Level Data:\n":
+    [show (length i) ++ " instances of " ++ show (head i) ++ "\n"| i <- invalid]
+  in
+  if invalid /= [] then
+    error errors
+  else
+    invalid == []

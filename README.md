@@ -12,7 +12,9 @@ To compile:
 
 To run:
 
-`./watersort n`, where n is the level number of a level defined in levels.hs.
+`./watersort < levels/n`, where n is the level number of a level file in the levels folder.
+
+Or you can enter a level manually, or get one from anywhere else
 
 This outputs a list of moves (from, to), indicating which tube to pour into which.
 
